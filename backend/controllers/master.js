@@ -19,6 +19,8 @@ import {
   postKampus,
   putKampus,
   deleteKampus,
+  getAllDosen,
+  postDosen,
 } from "../models/masterModel.js";
 
 // ===> Identitas Kampus Start <===
@@ -271,4 +273,26 @@ export const delKampus = (req, res) => {
 // ===> Mata Kuliah End <===
 
 // ===> Dosen Start <===
+// show dosen
+export const showAllDosen = (req, res) => {
+  getAllDosen((err, results) => {
+    if (err) {
+      res.send(err);
+    } else {
+      res.json(results);
+    }
+  });
+};
+
+// insert dosen
+export const insertDosen = (req, res) => {
+  const data = req.body;
+  postDosen(data, (err, results) => {
+    if (err) {
+      res.send(err);
+    } else {
+      res.json(results);
+    }
+  });
+};
 // ===> Dosen End <===
