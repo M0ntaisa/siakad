@@ -21,6 +21,8 @@ import {
   deleteKampus,
   getAllDosen,
   postDosen,
+  putDosen,
+  deleteDosen,
 } from "../models/masterModel.js";
 
 // ===> Identitas Kampus Start <===
@@ -295,4 +297,30 @@ export const insertDosen = (req, res) => {
     }
   });
 };
+
+// edit dosen
+export const editDosen = (req, res) => {
+  const data = req.body;
+  const id = req.params.id;
+  putDosen(data, id, (err, results) => {
+    if (err) {
+      res.send(err);
+    } else {
+      res.json(results);
+    }
+  });
+};
+
+// delete dosen
+export const delDosen = (req, res) => {
+  const id = req.params.id;
+  deleteDosen(id, (err, results) => {
+    if (err) {
+      res.send(err);
+    } else {
+      res.json(results);
+    }
+  });
+};
+
 // ===> Dosen End <===
