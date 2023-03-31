@@ -23,6 +23,10 @@ import {
   postDosen,
   putDosen,
   deleteDosen,
+  getAllMahasiswa,
+  postMahasiswa,
+  putMahasiswa,
+  deleteMahasiswa,
 } from "../models/masterModel.js";
 
 // ===> Identitas Kampus Start <===
@@ -324,3 +328,53 @@ export const delDosen = (req, res) => {
 };
 
 // ===> Dosen End <===
+
+// ===> Mahasiswa Start <===
+// show mahasiswa
+export const showAllMahasiswa = (req, res) => {
+  getAllMahasiswa((err, results) => {
+    if (err) {
+      res.send(err);
+    } else {
+      res.json(results);
+    }
+  });
+};
+
+// insert mahasiswa
+export const insertMahasiswa = (req, res) => {
+  const data = req.body;
+  postMahasiswa(data, (err, results) => {
+    if (err) {
+      res.send(err);
+    } else {
+      res.json(results);
+    }
+  });
+};
+
+// edit mahasiswa
+export const editMahasiswa = (req, res) => {
+  const data = req.body;
+  const id = req.params.id;
+  putMahasiswa(data, id, (err, results) => {
+    if (err) {
+      res.send(err);
+    } else {
+      res.json(results);
+    }
+  });
+};
+
+// delete mahasiswa
+export const delMahasiswa = (req, res) => {
+  const id = req.params.id;
+  deleteMahasiswa(id, (err, results) => {
+    if (err) {
+      res.send(err);
+    } else {
+      res.json(results);
+    }
+  });
+};
+// ===> Mahasiswa End <===
