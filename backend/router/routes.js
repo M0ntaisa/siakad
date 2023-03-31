@@ -22,7 +22,12 @@ import {
   insertKampus,
   editKampus,
   delKampus,
+  showAllDosen,
+  insertDosen,
+  editDosen,
+  delDosen,
 } from "../controllers/master.js";
+import { postDosen } from "../models/masterModel.js";
 
 // init express router
 const router = express.Router();
@@ -106,6 +111,18 @@ router.delete("/kampus/:id", delKampus);
 // ===> Mata Kuliah End <===
 
 // ===> Dosen Start <===
+//get all
+router.get("/dosen", showAllDosen);
+
+// post
+router.post("/dosen", insertDosen);
+
+// put
+router.put("/dosen/:id", editDosen);
+
+// delete
+router.delete("/dosen/:id", delDosen);
+
 // ===> Dosen End <===
 
 // export default router
