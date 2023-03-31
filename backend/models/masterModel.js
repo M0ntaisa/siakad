@@ -217,7 +217,20 @@ export const postDosen = (data, result) => {
 
 // put dosen
 export const putDosen = (data, id, result) => {
-  db.query("UPDATE dosen SET NIDN = ?, nama_lengkap = ?, username = ?, password = ?, TempatLahir = ?, TanggalLahir = ?, Identitas_ID = ?")
+  db.query("UPDATE dosen SET NIDN = ?, nama_lengkap = ?, username = ?, password = ?, TempatLahir = ?, TanggalLahir = ?, Identitas_ID = ? WHERE ID = ?", [data.nidn, data.nama_lengkap, data.username, data.password, data.tempat_lahir, data.tanggal_lahir, data.identitas_id, id], (err, results) => {
+    if (err) {
+      console.log(err);
+      result(err, null);
+    } else {
+      result(null, results);
+    }
+  });
+};
+
+// delete dosen
+export const deleteDosen = (id, result) => {
+  const table = "dosen";
+  deleteEntry(table, id, result);
 }
 
 // ===> Dosen End <===
