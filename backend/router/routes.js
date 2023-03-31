@@ -26,6 +26,10 @@ import {
   insertDosen,
   editDosen,
   delDosen,
+  showAllMahasiswa,
+  insertMahasiswa,
+  editMahasiswa,
+  delMahasiswa,
 } from "../controllers/master.js";
 import { postDosen } from "../models/masterModel.js";
 
@@ -124,6 +128,21 @@ router.put("/dosen/:id", editDosen);
 router.delete("/dosen/:id", delDosen);
 
 // ===> Dosen End <===
+
+// ===> Mahasiswa Start <===
+// get all
+router.get("/mahasiswa", showAllMahasiswa);
+
+// post
+router.post("/mahasiswa", insertMahasiswa);
+
+// put
+router.put("/mahasiswa/:id", editMahasiswa);
+
+// delete
+router.delete("/mahasiswa/:id", delMahasiswa);
+
+// ===> Mahasiswa End <===
 
 // export default router
 export default router;
