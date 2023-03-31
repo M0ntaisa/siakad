@@ -234,3 +234,36 @@ export const deleteDosen = (id, result) => {
 }
 
 // ===> Dosen End <===
+
+// ===> Mahasiswa Start <===
+// get all mahasiswa
+export const getAllMahasiswa = (result) => {
+  const table = "mahasiswa";
+  getAll(table, result);
+}
+
+// post mahasiswa
+export const postMahasiswa = (data, result) => {
+  const table = "mahasiswa";
+  postData(table, data, result);
+}
+
+// put mahasiswa
+export const putMahasiswa = (data, id, result) => {
+  db.query("UPDATE mahasiswa SET Identitas_ID = ?, Jurusan_ID = ?, Program_ID = ?, nama = ?, NIM = ?, Angkata = ?, username = ?, password = ?, TempatLahir = ?, TanggalLahir = ?, Kelamin = ?, Agama = ?, StatusSipil = ?, Alamat = ?, StatusAwal_ID = ?, PenasehatAkademik = ? WHERE ID = ?", [data.identitas_id, data.jurusan_id, data.program_id, data.nama, data.nim, data.angkatan, data.username, data.password, data.tempat_lahir, data.tanggal_lahir, data.kelamin, data.agama, data.status_sipil, data.alamat, data.status_awal, data.penasehat_akademik, id], (err, results) => {
+    if (err) {
+      console.log(err);
+      result(err, null);
+    } else {
+      result(null, results);
+    }
+  });
+};
+
+// delete mahasiswa
+export const deleteMahasiswa = (id, result) => {
+  const table = "mahasiswa";
+  deleteEntry(table, id, result);
+}
+
+// ===> Mahasiswa End <===
