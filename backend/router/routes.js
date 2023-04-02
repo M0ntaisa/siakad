@@ -2,6 +2,7 @@
 import express from "express";
 
 // import functions from constollers
+// master's functions
 import {
   showIdentitas,
   editIdentitasKampus,
@@ -31,7 +32,15 @@ import {
   editMahasiswa,
   delMahasiswa,
 } from "../controllers/master.js";
-import { postDosen } from "../models/masterModel.js";
+
+// admin's functions
+import {
+  showAdministrator,
+  insertAdministrator,
+  editAdministrator,
+  delAdministrator,
+} from "../controllers/admin.js";
+
 
 // init express router
 const router = express.Router();
@@ -143,6 +152,22 @@ router.put("/mahasiswa/:id", editMahasiswa);
 router.delete("/mahasiswa/:id", delMahasiswa);
 
 // ===> Mahasiswa End <===
+
+// ===> Administrator Start <===
+// get all
+router.get("/administrator", showAdministrator);
+
+// post
+router.post("/administrator", insertAdministrator);
+
+// put
+router.put("/administrator/:id", editAdministrator);
+
+// delete
+router.delete("/administrator/:id", delAdministrator);
+
+// ===> Administrator End <===
+
 
 // export default router
 export default router;
