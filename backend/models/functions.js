@@ -1,6 +1,15 @@
 // import db conncection
 import db from "../config/database.js";
 
+// handle response
+export const handleResponse = (err, results, res) => {
+  if(err) {
+    res.send(err);
+  } else {
+    res.json(results);
+  }
+};
+
 // function to get all data
 export const getAll = (table, result) => {
   db.query(`SELECT * FROM ${table}`, (err, results) => {
