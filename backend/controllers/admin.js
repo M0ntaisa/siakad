@@ -4,6 +4,10 @@ import {
   postAdministrator,
   putAdministrator,
   deleteAdministrator,
+  getAkademik,
+  postAkademik,
+  putAkademik,
+  deleteAkademik,
 } from "../models/adminModel.js";
 
 // ===> Administrator Start <===
@@ -56,3 +60,54 @@ export const delAdministrator = (req, res) => {
 };
 
 // ===> Administrator End <===
+
+// ===> Akademik Start <===
+// show all akademik
+export const showAllAkademik = (req, res) => {
+  getAkademik((err, results) => {
+    if (err) {
+      res.send(err);
+    } else {
+      res.json(results);
+    }
+  });
+};
+
+// insert akademik
+export const insertAkademik = (req, res) => {
+  const data = req.body;
+  postAkademik(data, (err, results) => {
+    if (err) {
+      res.send(err);
+    } else {
+      res.json(results);
+    }
+  });
+};
+
+// edit akademik
+export const editAkademik = (req, res) => {
+  const data = req.body;
+  const id = req.params.id;
+  putAkademik(data, id, (err, results) => {
+    if (err) {
+      res.send(err);
+    } else {
+      res.json(results);
+    }
+  });
+};
+
+// delete akademik
+export const delAkademik = (req, res) => {
+  const id = req.params.id;
+  deleteAkademik(id, (err, results) => {
+    if (err) {
+      res.send(err);
+    } else {
+      res.json(results);
+    }
+  });
+};
+
+// ===> Akademik End <===
