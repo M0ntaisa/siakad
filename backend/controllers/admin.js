@@ -17,11 +17,7 @@ import { handleResponse } from "../models/functions.js";
 // show admin
 export const showAdministrator = (req, res) => {
   getAdministrator((err, results) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.json(results);
-    }
+    handleResponse(err, results, res);
   });
 };
 
@@ -29,11 +25,7 @@ export const showAdministrator = (req, res) => {
 export const insertAdministrator = (req, res) => {
   const data = req.body;
   postAdministrator(data, (err, results) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.json(results);
-    }
+    handleResponse(err, results, res);
   });
 };
 
@@ -42,11 +34,7 @@ export const editAdministrator = (req, res) => {
   const data = req.body;
   const id = req.params.id;
   putAdministrator(data, id, (err, results) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.json(results);
-    }
+    handleResponse(err, results, res);
   });
 };
 
@@ -54,11 +42,7 @@ export const editAdministrator = (req, res) => {
 export const delAdministrator = (req, res) => {
   const id = req.params.id;
   deleteAdministrator(id, (err, results) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.json(results);
-    }
+    handleResponse(err, results, res);
   });
 };
 
@@ -68,11 +52,7 @@ export const delAdministrator = (req, res) => {
 // show all akademik
 export const showAllAkademik = (req, res) => {
   getAkademik((err, results) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.json(results);
-    }
+    handleResponse(err, results, res);
   });
 };
 
@@ -80,11 +60,7 @@ export const showAllAkademik = (req, res) => {
 export const insertAkademik = (req, res) => {
   const data = req.body;
   postAkademik(data, (err, results) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.json(results);
-    }
+    handleResponse(err, results, res);
   });
 };
 
@@ -93,11 +69,7 @@ export const editAkademik = (req, res) => {
   const data = req.body;
   const id = req.params.id;
   putAkademik(data, id, (err, results) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.json(results);
-    }
+    handleResponse(err, results, res);
   });
 };
 
@@ -105,11 +77,7 @@ export const editAkademik = (req, res) => {
 export const delAkademik = (req, res) => {
   const id = req.params.id;
   deleteAkademik(id, (err, results) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.json(results);
-    }
+    handleResponse(err, results, res);
   });
 };
 
