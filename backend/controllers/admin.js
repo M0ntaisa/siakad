@@ -10,6 +10,9 @@ import {
   deleteAkademik,
 } from "../models/adminModel.js";
 
+// import handle response
+import { handleResponse } from "../models/functions.js";
+
 // ===> Administrator Start <===
 // show admin
 export const showAdministrator = (req, res) => {
@@ -111,3 +114,8 @@ export const delAkademik = (req, res) => {
 };
 
 // ===> Akademik End <===
+
+// ===> Hak Modul Start <===
+
+
+// ===> Hak Modul End <===

@@ -29,6 +29,9 @@ import {
   deleteMahasiswa,
 } from "../models/masterModel.js";
 
+// import handle response
+import { handleResponse } from "../models/functions.js";
+
 // ===> Identitas Kampus Start <===
 // show identitas kampus
 export const showIdentitas =  (req, res) => {
