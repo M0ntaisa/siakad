@@ -36,7 +36,40 @@ export const putAdministrator = (data, id, result) => {
 // delete administrator
 export const deleteAdministrator = (id, result) => {
   const table = "admin";
-  deleteEntry(id, result);
-}
+  deleteEntry(table, id, result);
+};
 
 // ===> Administrator End <===
+
+// ===> Akademik Start <===
+// get akademin
+export const getAkademik = (result) => {
+  const table = "akademik";
+  getAll(table, result);
+};
+
+// post akademik
+export const postAkademik = (data, result) => {
+  const table = "akademik";
+  postData(table, data, result);
+};
+
+// put akademik
+export const putAkademik = (data, id, result) => {
+  db.query("UPDATE akademik SET Identitas_ID = ?, Jurusan_ID = ?, username = ?, password = ?, nama_lengkap = ?, alamat = ?, keterangan = ?, email = ?, telepon = ?, foto = ? WHERE ID = ?", [data.identitas_id, data.jurusan_id, data.username, data.password, data.nama_lengkap, data.alamat, data.keterangan, data.email, data.telepon, data.foto, id], (err, results) => {
+    if (err) {
+      console.log(err);
+      result(err, null);
+    } else {
+      result(null, results);
+    }
+  });
+};
+
+// delete akademik
+export const deleteAkademik = (id, result) => {
+  const table = "akademik";
+  deleteEntry(table, id, result);
+};
+
+// ===> Akademik End <===
