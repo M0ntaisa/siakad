@@ -36,11 +36,7 @@ import { handleResponse } from "../models/functions.js";
 // show identitas kampus
 export const showIdentitas =  (req, res) => {
   getIdentitasKampus((err, results) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.json(results);
-    }
+    handleResponse(err, results, res);
   });
 };
 
@@ -49,11 +45,7 @@ export const editIdentitasKampus = (req, res) => {
   const data = req.body;
   const id = req.params.id;
   putIdentitasKampus(data, id, (err, results) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.json(results);
-    }
+    handleResponse(err, results, res);
   });
 };
 
@@ -61,11 +53,7 @@ export const editIdentitasKampus = (req, res) => {
 export const delIdentitasKampus = (req, res) => {
   const id = req.params.id;
   deleteIdentitasKampus(id, (err, results) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.json(results);
-    }
+    handleResponse(err, results, res);
   });
 };
 
@@ -75,11 +63,7 @@ export const delIdentitasKampus = (req, res) => {
 // show all prodi
 export const showAllProdi = (req, res) => {
   getAllProdi((err, results) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.json(results);
-    }
+    handleResponse(err, results, res);
   });
 };
 
@@ -87,11 +71,7 @@ export const showAllProdi = (req, res) => {
 export const insertProdi = (req, res) => {
   const data = req.body;
   postProdi(data, (err, results) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.json(results);
-    }
+    handleResponse(err, results, res);
   });
 };
 
@@ -100,11 +80,7 @@ export const editProdi = (req, res) => {
   const data = req.body;
   const id = req.params.id;
   putProdi(data, id, (err, results) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.json(results);
-    }
+    handleResponse(err, results, res);
   });
 };
 
@@ -112,11 +88,7 @@ export const editProdi = (req, res) => {
 export const delProdi = (req, res) => {
   const id = req.params.id;
   deleteProdi(id, (err, results) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.json(results);
-    }
+    handleResponse(err, results, res);
   });
 };
 
@@ -126,11 +98,7 @@ export const delProdi = (req, res) => {
 // show program
 export const showAllPrograms = (req, res) => {
   getAllProgram((err, results) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.json(results);
-    }
+    handleResponse(err, results, res);
   });
 };
 
@@ -138,11 +106,7 @@ export const showAllPrograms = (req, res) => {
 export const insertProgram = (req, res) => {
   const data = req.body;
   postProgram(data, (err, results) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.json(results);
-    }
+    handleResponse(err, results, res);
   });
 };
 
@@ -151,11 +115,7 @@ export const editProgram = (req, res) => {
   const data = req.body;
   const id = req.params.id;
   putProgram(data, id, (err, results) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.json(results);
-    }
+    handleResponse(err, results, res);
   });
 };
 
@@ -163,11 +123,7 @@ export const editProgram = (req, res) => {
 export const delProgram = (req, res) => {
   const id = req.params.id;
   deleteProgram(id, (err, results) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.json(results);
-    }
+    handleResponse(err, results, res);
   });
 };
 
@@ -177,11 +133,7 @@ export const delProgram = (req, res) => {
 // show all fakultas
 export const showAllFakultas = (req, res) => {
   getAllFakultas((err, results) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.json(results);
-    }
+    handleResponse(err, results, res);
   });
 };
 
@@ -189,11 +141,7 @@ export const showAllFakultas = (req, res) => {
 export const insertFakultas = (req, res) => {
   const data = req.body;
   postFakultas(data, (err, results) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.json(results);
-    }
+    handleResponse(err, results, res);
   });
 };
 
@@ -202,11 +150,7 @@ export const editFakultas = (req, res) => {
   const data = req.body;
   const id = req.params.id;
   putFakultas(data, id, (err, results) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.json(results);
-    }
+    handleResponse(err, results, res);
   });
 };
 
@@ -214,11 +158,7 @@ export const editFakultas = (req, res) => {
 export const delFakultas = (req, res) => {
   const id = req.params.id;
   deleteFakultas(id, (err, results) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.json(results);
-    }
+    handleResponse(err, results, res);
   });
 };
 
@@ -228,11 +168,7 @@ export const delFakultas = (req, res) => {
 // show kampus
 export const showAllKampus = (req, res) => {
   getAllKampus((err, results) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.json(results);
-    }
+    handleResponse(err, results, res);
   });
 };
 
@@ -240,11 +176,7 @@ export const showAllKampus = (req, res) => {
 export const insertKampus = (req, res) => {
   const data = req.body;
   postKampus(data, (err, results) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.json(results);
-    }
+    handleResponse(err, results, res);
   });
 };
 
@@ -253,11 +185,7 @@ export const editKampus = (req, res) => {
   const data = req.body;
   const id = req.params.id;
   putKampus(data, id, (err, results) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.json(results);
-    }
+    handleResponse(err, results, res);
   });
 };
 
@@ -265,11 +193,7 @@ export const editKampus = (req, res) => {
 export const delKampus = (req, res) => {
   const id = req.params.id;
   deleteKampus(id, (err, results) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.json(results);
-    }
+    handleResponse(err, results, res);
   });
 };
 
@@ -285,11 +209,7 @@ export const delKampus = (req, res) => {
 // show dosen
 export const showAllDosen = (req, res) => {
   getAllDosen((err, results) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.json(results);
-    }
+    handleResponse(err, results, res);
   });
 };
 
@@ -297,11 +217,7 @@ export const showAllDosen = (req, res) => {
 export const insertDosen = (req, res) => {
   const data = req.body;
   postDosen(data, (err, results) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.json(results);
-    }
+    handleResponse(err, results, res);
   });
 };
 
@@ -310,11 +226,7 @@ export const editDosen = (req, res) => {
   const data = req.body;
   const id = req.params.id;
   putDosen(data, id, (err, results) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.json(results);
-    }
+    handleResponse(err, results, res);
   });
 };
 
@@ -322,11 +234,7 @@ export const editDosen = (req, res) => {
 export const delDosen = (req, res) => {
   const id = req.params.id;
   deleteDosen(id, (err, results) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.json(results);
-    }
+    handleResponse(err, results, res);
   });
 };
 
@@ -336,11 +244,7 @@ export const delDosen = (req, res) => {
 // show mahasiswa
 export const showAllMahasiswa = (req, res) => {
   getAllMahasiswa((err, results) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.json(results);
-    }
+    handleResponse(err, results, res);
   });
 };
 
@@ -348,11 +252,7 @@ export const showAllMahasiswa = (req, res) => {
 export const insertMahasiswa = (req, res) => {
   const data = req.body;
   postMahasiswa(data, (err, results) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.json(results);
-    }
+    handleResponse(err, results, res);
   });
 };
 
@@ -361,11 +261,7 @@ export const editMahasiswa = (req, res) => {
   const data = req.body;
   const id = req.params.id;
   putMahasiswa(data, id, (err, results) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.json(results);
-    }
+    handleResponse(err, results, res);
   });
 };
 
@@ -373,11 +269,7 @@ export const editMahasiswa = (req, res) => {
 export const delMahasiswa = (req, res) => {
   const id = req.params.id;
   deleteMahasiswa(id, (err, results) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.json(results);
-    }
+    handleResponse(err, results, res);
   });
 };
 // ===> Mahasiswa End <===
