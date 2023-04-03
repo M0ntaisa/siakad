@@ -39,6 +39,10 @@ import {
   insertAdministrator,
   editAdministrator,
   delAdministrator,
+  showAllAkademik,
+  insertAkademik,
+  editAkademik,
+  delAkademik,
 } from "../controllers/admin.js";
 
 
@@ -167,6 +171,21 @@ router.put("/administrator/:id", editAdministrator);
 router.delete("/administrator/:id", delAdministrator);
 
 // ===> Administrator End <===
+
+// ===> Akademik Start <===
+// get all
+router.get("/akademik", showAllAkademik);
+
+// post
+router.post("/akademik", insertAkademik);
+
+// put
+router.put("/akademik/:id", editAkademik);
+
+// delete
+router.delete("akademik/:id", delAkademik);
+
+// ===> Akademik End <===
 
 
 // export default router
