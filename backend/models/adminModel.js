@@ -23,7 +23,9 @@ export const postAdministrator = (data, result) => {
 
 // put administrator
 export const putAdministrator = (data, id, result) => {
-  db.query("UPDATE admin SET username = ?, password = ?, nama_lengkap = ?, keterangan = ?, email = ?, telepon = ?, foto = ? WHERE ID = ?", [data.username, data.password, data.nama_lengkap, data.keterangan, data.email, data.telepon, data.foto, id], (err, results) => {
+  const query = "UPDATE admin SET username = ?, password = ?, nama_lengkap = ?, keterangan = ?, email = ?, telepon = ?, foto = ? WHERE ID = ?";
+
+  db.query(query, [data.username, data.password, data.nama_lengkap, data.keterangan, data.email, data.telepon, data.foto, id], (err, results) => {
     if (err) {
       console.log(err);
       result(err, null);
@@ -56,7 +58,9 @@ export const postAkademik = (data, result) => {
 
 // put akademik
 export const putAkademik = (data, id, result) => {
-  db.query("UPDATE akademik SET Identitas_ID = ?, Jurusan_ID = ?, username = ?, password = ?, nama_lengkap = ?, alamat = ?, keterangan = ?, email = ?, telepon = ?, foto = ? WHERE ID = ?", [data.identitas_id, data.jurusan_id, data.username, data.password, data.nama_lengkap, data.alamat, data.keterangan, data.email, data.telepon, data.foto, id], (err, results) => {
+  const query = "UPDATE akademik SET Identitas_ID = ?, Jurusan_ID = ?, username = ?, password = ?, nama_lengkap = ?, alamat = ?, keterangan = ?, email = ?, telepon = ?, foto = ? WHERE ID = ?";
+  
+  db.query(query, [data.identitas_id, data.jurusan_id, data.username, data.password, data.nama_lengkap, data.alamat, data.keterangan, data.email, data.telepon, data.foto, id], (err, results) => {
     if (err) {
       console.log(err);
       result(err, null);
@@ -73,3 +77,8 @@ export const deleteAkademik = (id, result) => {
 };
 
 // ===> Akademik End <===
+
+// ===> Hak Modul Start <===
+// get hak modul
+
+// ===> Hak Modul End <===
