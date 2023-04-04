@@ -17,7 +17,9 @@ export const getIdentitasKampus = (result) => {
 
 // put identitas kampus
 export const putIdentitasKampus = (data, id, result) => {
-  db.query("UPDATE identitas SET Identitas_ID = ?, KodeHukum = ?, Nama_Identitas = ?, TglMulai = ?, Alamat1 = ?, Kota = ?, KodePos = ?, Telepon = ?, Email = ?, Website = ?, NoAkta = ?, TglAkta = ?, NoSah = ?, TglSah = ? WHERE ID = ?", [data.identitas_id, data.kode_hukum, data.nama_identitas, data.tgl_mulai, data.alamat, data.kota, data.kodepos, data.telepon, data.email, data.website, data.no_akta, data.tgl_akta, data.no_sah, data.tgl_sah, id], (err, results) => {
+  const query = "UPDATE identitas SET Identitas_ID = ?, KodeHukum = ?, Nama_Identitas = ?, TglMulai = ?, Alamat1 = ?, Kota = ?, KodePos = ?, Telepon = ?, Email = ?, Website = ?, NoAkta = ?, TglAkta = ?, NoSah = ?, TglSah = ? WHERE ID = ?";
+
+  db.query(query, [data.identitas_id, data.kode_hukum, data.nama_identitas, data.tgl_mulai, data.alamat, data.kota, data.kodepos, data.telepon, data.email, data.website, data.no_akta, data.tgl_akta, data.no_sah, data.tgl_sah, id], (err, results) => {
     if (err) {
       console.log(err);
       result(err, null);
@@ -50,7 +52,9 @@ export const postProdi = (data, result) => {
 
 // put program studi
 export const putProdi = (data, id, result) => {
-  db.query("UPDATE jurusan SET Identitas_ID = ?, Jurusan_ID = ?, nama_jurusan = ?, kprodi = ?, nama_fakultas = ?, jenjang = ?, akreditasi = ? WHERE ID = ?", [data.identitas_id, data.jurusan_id, data.nama_jurusan, data.ketua_prodi, data.nama_fakultas, data.jenjang, data.akreditasi, id], (err, results) => {
+  const query = "UPDATE jurusan SET Identitas_ID = ?, Jurusan_ID = ?, nama_jurusan = ?, kprodi = ?, nama_fakultas = ?, jenjang = ?, akreditasi = ? WHERE ID = ?";
+
+  db.query(query, [data.identitas_id, data.jurusan_id, data.nama_jurusan, data.ketua_prodi, data.nama_fakultas, data.jenjang, data.akreditasi, id], (err, results) => {
     if (err) {
       console.log(err);
       result(err, null);
@@ -83,7 +87,9 @@ export const postProgram = (data, result) => {
 
 // put program studi
 export const putProgram = (data, id, result) => {
-  db.query("UPDATE program SET Identitas_ID = ?, Program_ID = ?, nama_program = ? WHERE ID = ?", [data.identitas_id, data.program_id, data.nama_program, id], (err, results) => {
+  const query = "UPDATE program SET Identitas_ID = ?, Program_ID = ?, nama_program = ? WHERE ID = ?";
+
+  db.query(query, [data.identitas_id, data.program_id, data.nama_program, id], (err, results) => {
     if (err) {
       console.log(err);
       result(err, null);
@@ -116,7 +122,9 @@ export const postFakultas = (data, result) => {
 
 // put fakultas
 export const putFakultas = (data, id, result) => {
-  db.query("UPDATE fakultas SET Identitas_ID = ?, kode_fakultas = ?, nama_fakultas = ?, Dekan = ? WHERE ID = ?", [data.identitas_id, data.kode_fakultas, data.nama_fakultas, data.dekan, id], (err, results) => {
+  const query ="UPDATE fakultas SET Identitas_ID = ?, kode_fakultas = ?, nama_fakultas = ?, Dekan = ? WHERE ID = ?";
+
+  db.query(query, [data.identitas_id, data.kode_fakultas, data.nama_fakultas, data.dekan, id], (err, results) => {
     if (err) {
       console.log(err);
       result(err, null);
@@ -149,7 +157,9 @@ export const postKampus = (data, result) => {
 
 // put kampus
 export const putKampus = (data, id, result) => {
-  db.query("UPDATE kampus SET Identitas_ID = ?, Kampus_ID = ?, Nama = ?, Alamat = ?, Kota = ?, Telepon = ?, Fax = ? WHERE ID = ?", [data.identitas_id, data.kampus_id, data.nama, data.alamat, data.kota, data.telepon, data.fax, id], (err, results) => {
+  const query = "UPDATE kampus SET Identitas_ID = ?, Kampus_ID = ?, Nama = ?, Alamat = ?, Kota = ?, Telepon = ?, Fax = ? WHERE ID = ?";
+
+  db.query(query, [data.identitas_id, data.kampus_id, data.nama, data.alamat, data.kota, data.telepon, data.fax, id], (err, results) => {
     if (err) {
       console.log(err);
       result(err, null);
@@ -188,7 +198,9 @@ export const postDosen = (data, result) => {
 
 // put dosen
 export const putDosen = (data, id, result) => {
-  db.query("UPDATE dosen SET NIDN = ?, nama_lengkap = ?, username = ?, password = ?, TempatLahir = ?, TanggalLahir = ?, Identitas_ID = ? WHERE ID = ?", [data.nidn, data.nama_lengkap, data.username, data.password, data.tempat_lahir, data.tanggal_lahir, data.identitas_id, id], (err, results) => {
+  const query = "UPDATE dosen SET NIDN = ?, nama_lengkap = ?, username = ?, password = ?, TempatLahir = ?, TanggalLahir = ?, Identitas_ID = ? WHERE ID = ?";
+
+  db.query(query, [data.nidn, data.nama_lengkap, data.username, data.password, data.tempat_lahir, data.tanggal_lahir, data.identitas_id, id], (err, results) => {
     if (err) {
       console.log(err);
       result(err, null);
@@ -221,7 +233,9 @@ export const postMahasiswa = (data, result) => {
 
 // put mahasiswa
 export const putMahasiswa = (data, id, result) => {
-  db.query("UPDATE mahasiswa SET Identitas_ID = ?, Jurusan_ID = ?, Program_ID = ?, nama = ?, NIM = ?, Angkata = ?, username = ?, password = ?, TempatLahir = ?, TanggalLahir = ?, Kelamin = ?, Agama = ?, StatusSipil = ?, Alamat = ?, StatusAwal_ID = ?, PenasehatAkademik = ? WHERE ID = ?", [data.identitas_id, data.jurusan_id, data.program_id, data.nama, data.nim, data.angkatan, data.username, data.password, data.tempat_lahir, data.tanggal_lahir, data.kelamin, data.agama, data.status_sipil, data.alamat, data.status_awal, data.penasehat_akademik, id], (err, results) => {
+  const query = "UPDATE mahasiswa SET Identitas_ID = ?, Jurusan_ID = ?, Program_ID = ?, nama = ?, NIM = ?, Angkata = ?, username = ?, password = ?, TempatLahir = ?, TanggalLahir = ?, Kelamin = ?, Agama = ?, StatusSipil = ?, Alamat = ?, StatusAwal_ID = ?, PenasehatAkademik = ? WHERE ID = ?";
+  
+  db.query(query, [data.identitas_id, data.jurusan_id, data.program_id, data.nama, data.nim, data.angkatan, data.username, data.password, data.tempat_lahir, data.tanggal_lahir, data.kelamin, data.agama, data.status_sipil, data.alamat, data.status_awal, data.penasehat_akademik, id], (err, results) => {
     if (err) {
       console.log(err);
       result(err, null);
