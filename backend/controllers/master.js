@@ -1,6 +1,7 @@
 // import functions from masterModel
 import {
   getIdentitasKampus,
+  getCodeIdentitas,
   putIdentitasKampus,
   deleteIdentitasKampus,
   getAllProdi,
@@ -36,6 +37,13 @@ import { handleResponse } from "../models/functions.js";
 // show identitas kampus
 export const showIdentitas =  (req, res) => {
   getIdentitasKampus((err, results) => {
+    handleResponse(err, results, res);
+  });
+};
+
+// show code identitas
+export const showCodeIdentitas = (req, res) => {
+  getCodeIdentitas((err, results) => {
     handleResponse(err, results, res);
   });
 };
