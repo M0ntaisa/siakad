@@ -168,6 +168,15 @@ export const getAllKampus = (result) => {
   getAll(table, result);
 };
 
+// get code kampus
+export const getCodeKampus = (result) => {
+  const query = "SELECT Kampus_ID, Nama FROM kampus";
+
+  db.query(query, (err, results) => {
+    handleErr(err, result, results);
+  });
+};
+
 // post kampus
 export const postKampus = (data, result) => {
   const table = "kampus";
