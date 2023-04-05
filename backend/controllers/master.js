@@ -18,6 +18,7 @@ import {
   putFakultas,
   deleteFakultas,
   getAllKampus,
+  getCodeKampus,
   postKampus,
   putKampus,
   deleteKampus,
@@ -184,6 +185,13 @@ export const delFakultas = (req, res) => {
 // show kampus
 export const showAllKampus = (req, res) => {
   getAllKampus((err, results) => {
+    handleResponse(err, results, res);
+  });
+};
+
+// show code kampus
+export const showCodeKampus = (req, res) => {
+  getCodeKampus((err, results) => {
     handleResponse(err, results, res);
   });
 };
