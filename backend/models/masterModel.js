@@ -124,6 +124,15 @@ export const getAllFakultas = (result) => {
   getAll(table, result);
 };
 
+// get kode fakultas
+export const getCodeFakultas = (result) => {
+  const query = "SELECT kode_fakultas, nama_fakultas FROM fakultas";
+
+  db.query(query, (err, results) => {
+    handleErr(err, result, results);
+  });
+};
+
 // post fakultas
 export const postFakultas = (data, result) => {
   const table = "fakultas";
