@@ -10,14 +10,24 @@ export const handleResponse = (err, results, res) => {
   }
 };
 
+// handle error
+export const handleErr = (err, result, results) => {
+  if (err) {
+    console.log(err);
+    result(err, null);
+  } else {
+    result(null, results);
+  }
+};
+
 // function to get all data
 export const getAll = (table, result) => {
   db.query(`SELECT * FROM ${table}`, (err, results) => {
     if (err) {
       console.log(err);
-      result(err.null);
+      result(err, null);
     } else {
-      result(null, results)
+      result(null, results);
     }
   });
 };
