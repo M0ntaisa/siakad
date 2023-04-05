@@ -6,6 +6,7 @@ import {
   getAll,
   postData,
   deleteEntry,
+  handleErr,
 } from "./functions.js";
 
 // ===> Identitas Kampus Start <===
@@ -13,6 +14,15 @@ import {
 export const getIdentitasKampus = (result) => {
   const table = "identitas";
   getAll(table, result);
+};
+
+// get code identitas
+export const getCodeIdentitas = (result) => {
+  const query = "SELECT Identitas_ID, Nama_Identitas FROM identitas";
+
+  db.query(query, (err, results) => {
+    handleErr(err, result, results);
+  });
 };
 
 // put identitas kampus
