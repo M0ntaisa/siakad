@@ -13,6 +13,7 @@ import {
   putProgram,
   deleteProgram,
   getAllFakultas,
+  getCodeFakultas,
   postFakultas,
   putFakultas,
   deleteFakultas,
@@ -141,6 +142,13 @@ export const delProgram = (req, res) => {
 // show all fakultas
 export const showAllFakultas = (req, res) => {
   getAllFakultas((err, results) => {
+    handleResponse(err, results, res);
+  });
+};
+
+// show code fakultas
+export const showCodeFakultas = (req, res) => {
+  getCodeFakultas((err, results) => {
     handleResponse(err, results, res);
   });
 };
