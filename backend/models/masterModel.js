@@ -188,12 +188,7 @@ export const putKampus = (data, id, result) => {
   const query = "UPDATE kampus SET Identitas_ID = ?, Kampus_ID = ?, Nama = ?, Alamat = ?, Kota = ?, Telepon = ?, Fax = ? WHERE ID = ?";
 
   db.query(query, [data.identitas_id, data.kampus_id, data.nama, data.alamat, data.kota, data.telepon, data.fax, id], (err, results) => {
-    if (err) {
-      console.log(err);
-      result(err, null);
-    } else {
-      result(null, results);
-    }
+    handleErr(err, result, results);
   });
 };
 
@@ -229,12 +224,7 @@ export const putDosen = (data, id, result) => {
   const query = "UPDATE dosen SET NIDN = ?, nama_lengkap = ?, username = ?, password = ?, TempatLahir = ?, TanggalLahir = ?, Identitas_ID = ? WHERE ID = ?";
 
   db.query(query, [data.nidn, data.nama_lengkap, data.username, data.password, data.tempat_lahir, data.tanggal_lahir, data.identitas_id, id], (err, results) => {
-    if (err) {
-      console.log(err);
-      result(err, null);
-    } else {
-      result(null, results);
-    }
+    handleErr(err, result, results);
   });
 };
 
@@ -264,12 +254,7 @@ export const putMahasiswa = (data, id, result) => {
   const query = "UPDATE mahasiswa SET Identitas_ID = ?, Jurusan_ID = ?, Program_ID = ?, nama = ?, NIM = ?, Angkata = ?, username = ?, password = ?, TempatLahir = ?, TanggalLahir = ?, Kelamin = ?, Agama = ?, StatusSipil = ?, Alamat = ?, StatusAwal_ID = ?, PenasehatAkademik = ? WHERE ID = ?";
   
   db.query(query, [data.identitas_id, data.jurusan_id, data.program_id, data.nama, data.nim, data.angkatan, data.username, data.password, data.tempat_lahir, data.tanggal_lahir, data.kelamin, data.agama, data.status_sipil, data.alamat, data.status_awal, data.penasehat_akademik, id], (err, results) => {
-    if (err) {
-      console.log(err);
-      result(err, null);
-    } else {
-      result(null, results);
-    }
+    handleErr(err, result, results);
   });
 };
 
