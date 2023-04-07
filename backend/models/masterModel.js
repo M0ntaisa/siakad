@@ -201,7 +201,7 @@ export const deleteKampus = (id, result) => {
 // ===> Kampus End <===
 
 // ===> Kurikulum Start <===
-// get kurikulum with identitas_id & jurusan_id
+// get spesify kurikulum
 export const getSpesifyKurikulum = (data, result) => {
   const query = "SELECT Kurikulum_ID, Kode, Nama FROM kampus WHERE Identitas_ID = ? AND Jurusan_ID = ?";
   
@@ -216,6 +216,15 @@ export const getSpesifyKurikulum = (data, result) => {
 // ===> Ruangan End <===
 
 // ===> Mata Kuliah Start <===
+// get spesify matakuliah
+export const getSpesifyMatakuliah = (data, result) => {
+  const query = "SELECT * FROM matakuliah WHERE Identitas_ID = ? AND Jurusan_ID = ? AND Kurikulum_ID = ?";
+
+  db.query(query, [data.identitas_id, data.jurusan_id, data.kurikulum_id], (err, results) => {
+    handleErr(err, result, results);
+  });
+};
+
 // ===> Mata Kuliah End <===
 
 // ===> Dosen Start <===
