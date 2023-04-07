@@ -200,6 +200,18 @@ export const deleteKampus = (id, result) => {
 
 // ===> Kampus End <===
 
+// ===> Kurikulum Start <===
+// get kurikulum with identitas_id & jurusan_id
+export const getSpesifyKurikulum = (data, result) => {
+  const query = "SELECT Kode, Nama FROM kampus WHERE Identitas_ID = ? AND Jurusan_ID = ?";
+  
+  db.query(query, [data.identitas_id, data.jurusan_id], (err, results) => {
+    handleErr(err, result, results);
+  });
+};
+
+// ===> Kurikulum End <===
+
 // ===> Ruangan Start <===
 // ===> Ruangan End <===
 
