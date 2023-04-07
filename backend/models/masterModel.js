@@ -129,12 +129,7 @@ export const putFakultas = (data, id, result) => {
   const query ="UPDATE fakultas SET Identitas_ID = ?, kode_fakultas = ?, nama_fakultas = ?, Dekan = ? WHERE ID = ?";
 
   db.query(query, [data.identitas_id, data.kode_fakultas, data.nama_fakultas, data.dekan, id], (err, results) => {
-    if (err) {
-      console.log(err);
-      result(err, null);
-    } else {
-      result(null, results);
-    }
+    handleErr(err, result, results);
   });
 };
 
