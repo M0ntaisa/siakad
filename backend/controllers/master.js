@@ -22,6 +22,7 @@ import {
   postKampus,
   putKampus,
   deleteKampus,
+  getSpesifyKurikulum,
   getAllDosen,
   postDosen,
   putDosen,
@@ -222,6 +223,17 @@ export const delKampus = (req, res) => {
 };
 
 // ===> Kampus End <===
+
+// ===> Kurikulum Start <===
+// show kurikulum
+export const showKurikulum = (req, res) => {
+  const data = req.body;
+  getSpesifyKurikulum(data, (err, results) => {
+    handleResponse(err, results, res);
+  });
+};
+
+// ===> Kurikulum End <===
 
 // ===> Ruangan Start <===
 // ===> Ruangan End <===
