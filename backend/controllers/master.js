@@ -23,6 +23,7 @@ import {
   putKampus,
   deleteKampus,
   getSpesifyKurikulum,
+  getSpesifyMatakuliah,
   getAllDosen,
   postDosen,
   putDosen,
@@ -239,6 +240,14 @@ export const showKurikulum = (req, res) => {
 // ===> Ruangan End <===
 
 // ===> Mata Kuliah Start <===
+// show matakuliah
+export const showMatakuliah = (req, res) => {
+  const data = req.body;
+  getSpesifyMatakuliah(data, (err, results) => {
+    handleResponse(err, results, res);
+  });
+};
+
 // ===> Mata Kuliah End <===
 
 // ===> Dosen Start <===
