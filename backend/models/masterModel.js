@@ -30,12 +30,7 @@ export const putIdentitasKampus = (data, id, result) => {
   const query = "UPDATE identitas SET Identitas_ID = ?, KodeHukum = ?, Nama_Identitas = ?, TglMulai = ?, Alamat1 = ?, Kota = ?, KodePos = ?, Telepon = ?, Email = ?, Website = ?, NoAkta = ?, TglAkta = ?, NoSah = ?, TglSah = ? WHERE ID = ?";
 
   db.query(query, [data.identitas_id, data.kode_hukum, data.nama_identitas, data.tgl_mulai, data.alamat, data.kota, data.kodepos, data.telepon, data.email, data.website, data.no_akta, data.tgl_akta, data.no_sah, data.tgl_sah, id], (err, results) => {
-    if (err) {
-      console.log(err);
-      result(err, null);
-    } else {
-      result(null, results);
-    }
+    handleErr(err, result, results);
   });
 };
 
@@ -65,12 +60,7 @@ export const putProdi = (data, id, result) => {
   const query = "UPDATE jurusan SET Identitas_ID = ?, Jurusan_ID = ?, nama_jurusan = ?, kprodi = ?, nama_fakultas = ?, jenjang = ?, akreditasi = ? WHERE ID = ?";
 
   db.query(query, [data.identitas_id, data.jurusan_id, data.nama_jurusan, data.ketua_prodi, data.nama_fakultas, data.jenjang, data.akreditasi, id], (err, results) => {
-    if (err) {
-      console.log(err);
-      result(err, null);
-    } else {
-      result(null, results);
-    }
+    handleErr(err, result, results);
   });
 };
 
@@ -100,12 +90,7 @@ export const putProgram = (data, id, result) => {
   const query = "UPDATE program SET Identitas_ID = ?, Program_ID = ?, nama_program = ? WHERE ID = ?";
 
   db.query(query, [data.identitas_id, data.program_id, data.nama_program, id], (err, results) => {
-    if (err) {
-      console.log(err);
-      result(err, null);
-    } else {
-      result(null, results);
-    }
+    handleErr(err, result, results);
   });
 };
 
