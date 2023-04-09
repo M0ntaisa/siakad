@@ -6,6 +6,7 @@ import {
   getAll,
   postData,
   deleteEntry,
+  handleErr,
 } from "./functions.js";
 
 // ===> Administrator Start <===
@@ -26,12 +27,7 @@ export const putAdministrator = (data, id, result) => {
   const query = "UPDATE admin SET username = ?, password = ?, nama_lengkap = ?, keterangan = ?, email = ?, telepon = ?, foto = ? WHERE ID = ?";
 
   db.query(query, [data.username, data.password, data.nama_lengkap, data.keterangan, data.email, data.telepon, data.foto, id], (err, results) => {
-    if (err) {
-      console.log(err);
-      result(err, null);
-    } else {
-      result(null, results);
-    }
+    handleErr(err, result, results);
   });
 };
 
@@ -61,12 +57,7 @@ export const putAkademik = (data, id, result) => {
   const query = "UPDATE akademik SET Identitas_ID = ?, Jurusan_ID = ?, username = ?, password = ?, nama_lengkap = ?, alamat = ?, keterangan = ?, email = ?, telepon = ?, foto = ? WHERE ID = ?";
   
   db.query(query, [data.identitas_id, data.jurusan_id, data.username, data.password, data.nama_lengkap, data.alamat, data.keterangan, data.email, data.telepon, data.foto, id], (err, results) => {
-    if (err) {
-      console.log(err);
-      result(err, null);
-    } else {
-      result(null, results);
-    }
+    handleErr(err, result, results);
   });
 };
 
