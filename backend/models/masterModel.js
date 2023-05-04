@@ -18,7 +18,7 @@ export const getIdentitasKampus = (result) => {
 
 // get code identitas
 export const getCodeIdentitas = (result) => {
-  const query = "SELECT Identitas_ID, Nama_Identitas FROM identitas";
+  const query = "SELECT ID, Identitas_ID, Nama_Identitas FROM identitas";
 
   db.query(query, (err, results) => {
     handleErr(err, result, results);
@@ -48,6 +48,15 @@ export const getAllProdi = (result) => {
   const table = "jurusan";
   getAll(table, result);
 };
+
+// get code prodi
+export const getCodeProdi = (result) => {
+  const query = "SELECT ID, Identitas_ID, Jurusan_ID, nama_jurusan FROM jurusan";
+
+  db.query(query, (err, results) => {
+    handleErr(err, result, results);
+  });
+}
 
 // post program studi
 export const postProdi = (data, result) => {
