@@ -5,6 +5,7 @@ import {
   putIdentitasKampus,
   deleteIdentitasKampus,
   getAllProdi,
+  getCodeProdi,
   postProdi,
   putProdi,
   deleteProdi,
@@ -75,6 +76,13 @@ export const delIdentitasKampus = (req, res) => {
 // show all prodi
 export const showAllProdi = (req, res) => {
   getAllProdi((err, results) => {
+    handleResponse(err, results, res);
+  });
+};
+
+// show code prodi
+export const showCodeProdi = (req, res) => {
+  getCodeProdi((err, results) => {
     handleResponse(err, results, res);
   });
 };
