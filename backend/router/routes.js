@@ -5,9 +5,11 @@ import express from "express";
 // master's functions
 import {
   showIdentitas,
+  showCodeIdentitas,
   editIdentitasKampus,
   delIdentitasKampus,
   showAllProdi,
+  showCodeProdi,
   insertProdi,
   editProdi,
   delProdi,
@@ -50,8 +52,11 @@ import {
 const router = express.Router();
 
 // ===> Identitas Kampus Start <===
-// get
+// get all
 router.get("/identitas", showIdentitas);
+
+// get only code
+router.get("/identitas-code", showCodeIdentitas);
 
 // put
 router.put("/identitas/:id", editIdentitasKampus);
@@ -64,6 +69,9 @@ router.delete("/identitas/:id", delIdentitasKampus);
 // ===> Program Studi Start <===
 // get all
 router.get("/prodi", showAllProdi);
+
+// get code prodi
+router.get("/prodi-code", showCodeProdi);
 
 // post
 router.post("/prodi", insertProdi);
@@ -186,6 +194,11 @@ router.put("/akademik/:id", editAkademik);
 router.delete("akademik/:id", delAkademik);
 
 // ===> Akademik End <===
+
+// ===> Hak Modul Start <===
+
+
+// ===> Hak Modul End <===
 
 
 // export default router
