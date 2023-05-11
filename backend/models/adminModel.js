@@ -16,6 +16,15 @@ export const getAdministrator = (result) => {
   getAll(table, result);
 };
 
+// get admin by id
+export const getAdminById = (id, result) => {
+  const query = "SELECT * FROM admin WHERE ID = ?";
+
+  db.query(query, [id], (err, results) => {
+    handleErr(err, result, results);
+  });
+};
+
 // post administrator
 export const postAdministrator = (data, result) => {
   const table = "admin";

@@ -38,6 +38,7 @@ import {
 // admin's functions
 import {
   showAdministrator,
+  ShowSingleAdmin,
   insertAdministrator,
   editAdministrator,
   delAdministrator,
@@ -168,6 +169,9 @@ router.delete("/mahasiswa/:id", delMahasiswa);
 // ===> Administrator Start <===
 // get all
 router.get("/administrator", showAdministrator);
+
+// get single
+router.get("/administrator/:id", ShowSingleAdmin);
 
 // post
 router.post("/administrator", insertAdministrator);

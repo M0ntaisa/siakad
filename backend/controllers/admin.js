@@ -1,6 +1,7 @@
 // import functions from adminModel
 import {
   getAdministrator,
+  getAdminById,
   postAdministrator,
   putAdministrator,
   deleteAdministrator,
@@ -17,6 +18,14 @@ import { handleResponse } from "../models/functions.js";
 // show admin
 export const showAdministrator = (req, res) => {
   getAdministrator((err, results) => {
+    handleResponse(err, results, res);
+  });
+};
+
+// show one admin
+export const ShowSingleAdmin = (req, res) => {
+  const id = req.params.id;
+  getAdminById(id, (err, results) => {
     handleResponse(err, results, res);
   });
 };
