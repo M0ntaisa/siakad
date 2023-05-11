@@ -29,7 +29,7 @@ export const getCodeIdentitas = (result) => {
 export const putIdentitasKampus = (data, id, result) => {
   const query = "UPDATE identitas SET Identitas_ID = ?, KodeHukum = ?, Nama_Identitas = ?, TglMulai = ?, Alamat1 = ?, Kota = ?, KodePos = ?, Telepon = ?, Email = ?, Website = ?, NoAkta = ?, TglAkta = ?, NoSah = ?, TglSah = ? WHERE ID = ?";
 
-  db.query(query, [data.identitas_id, data.kode_hukum, data.nama_identitas, data.tgl_mulai, data.alamat, data.kota, data.kodepos, data.telepon, data.email, data.website, data.no_akta, data.tgl_akta, data.no_sah, data.tgl_sah, id], (err, results) => {
+  db.query(query, [data.Identitas_Dd, data.KodeHukum, data.Nama_Identitas, data.TglMulai, data.Alamat1, data.Kota, data.KodePos, data.Telepon, data.Email, data.Website, data.NoAkta, data.TglAkta, data.NoSah, data.TglSah, id], (err, results) => {
     handleErr(err, result, results);
   });
 };
